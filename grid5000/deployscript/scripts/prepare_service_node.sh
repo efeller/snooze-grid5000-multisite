@@ -77,8 +77,8 @@ deploy_keys(){
    for host in $(cat $tmp_directory/hosts_list.txt)
    do
       echo "$log_tag copying keys on $host"
-      scp $tmp_directory/keys/hosts_keys.pub root@$host:/root/.ssh/id_rsa.pub 
-      scp $tmp_directory/keys/hosts_keys root@$host:/root/.ssh/id_rsa 
+      scp $tmp_directory/keys/hosts_keys.pub root@$host:/root/.ssh/$ssh_private_key_name.pub 
+      scp $tmp_directory/keys/hosts_keys root@$host:/root/.ssh/$ssh_private_key_name
       cat $tmp_directory/keys/hosts_keys.pub > $tmp_directory/keys/authorized_keys  
       scp $tmp_directory/keys/authorized_keys root@$host:/root/.ssh/tmp_key_file  
       ssh root@$host "cat /root/.ssh/tmp_key_file >> /root/.ssh/authorized_keys; rm /root/.ssh/tmp_key_file" 

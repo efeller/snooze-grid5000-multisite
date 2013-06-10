@@ -23,7 +23,7 @@ author="Eugen Feller <eugen.feller@inria.fr>"
 log_tag="[Snooze]"
 
 
-multisite=true
+multisite=false
 
 ## Exit codes
 error_code=1
@@ -43,7 +43,8 @@ deploy_script_directory="$base_directory/$relative_script_directory"
 katapult_commad="$deploy_script_directory/katapult/katapult3"
 
 ## SSH settings
-ssh_private_key="$HOME/.ssh/id_rsa"
+ssh_private_key_name="id_dsa"
+ssh_private_key="$HOME/.ssh/$ssh_private_key_name"
 ssh_command="ssh -o PasswordAuthentication=no -o StrictHostKeyChecking=no -i $ssh_private_key"
 
 # Script tmp directory
@@ -79,7 +80,7 @@ source_experiments_script_directory="$base_directory/$root_script_directory/grid
 destination_experiments_script_directory="$destination_snooze_directory/experiments"
 
 ### Cluster settings
-cluster_location="rennes"
+cluster_location="reims"
 storage_type="nfs" # set it to local if you don't want nfs share
 configure_bridge=true
 bridge="virbr0"
@@ -87,15 +88,15 @@ bridge="virbr0"
 
 ### Deployment and installation related settings
 max_deploy_runs=3
-environment_location="http://public.rennes.grid5000.fr/~msimonin/envs"
+environment_location="http://public.nancy.grid5000.fr/~msimonin/envs"
 environment_name="snooze-wheezy.env"
 environment_url=$environment_location/$environment_name
 
 ## Cluster settings 
 centralized_deployment=false
 number_of_bootstrap_nodes=1
-number_of_group_managers=4
-number_of_local_controllers=80
+number_of_group_managers=10
+number_of_local_controllers=28
 number_of_subnets=1
 
 # Deployment specific settings
