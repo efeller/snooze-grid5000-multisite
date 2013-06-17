@@ -45,7 +45,7 @@ katapult_commad="$deploy_script_directory/katapult/katapult3"
 ## SSH settings
 ssh_private_key_name="id_dsa"
 ssh_private_key="$HOME/.ssh/$ssh_private_key_name"
-ssh_command="ssh -o PasswordAuthentication=no -o StrictHostKeyChecking=no -i $ssh_private_key"
+ssh_command="ssh -o PasswordAuthentication=no -o StrictHostKeyChecking=no"
 
 # Script tmp directory
 tmp_directory="$deploy_script_directory/tmp"
@@ -96,7 +96,7 @@ environment_url=$environment_location/$environment_name
 centralized_deployment=false
 number_of_bootstrap_nodes=1
 number_of_group_managers=10
-number_of_local_controllers=28
+number_of_local_controllers=12
 number_of_subnets=1
 
 # Deployment specific settings
