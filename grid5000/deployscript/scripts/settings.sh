@@ -71,6 +71,9 @@ local_scripts_directory="$remote_scripts_directory"
 #must be the same that environment.sh
 remote_tmp_directory="$exported_directory_service_node/nfs"
 
+source_scpTsunami_directory="$deploy_script_directory/scpTsunami"
+destination_scpTsunami_directory="/opt"
+
 # Virtual machine image settings
 destination_snooze_directory="/tmp/snooze"
 source_images_directory="$base_directory/vmimages"
