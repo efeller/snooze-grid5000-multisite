@@ -17,8 +17,10 @@
 # 02110-1301, USA
 #
 
-
-# Generate the common network interfaces files with specific subnet value.
+# Get hosts from file
+get_hosts_from_file () {
+   echo $(cat $tmp_directory/$1)
+}
 
 # Creates a list of hosts
 create_hosts_list_vlan () {
