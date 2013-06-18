@@ -19,7 +19,21 @@
 
 # Get hosts from file
 get_hosts_from_file () {
-   echo $(cat $tmp_directory/$1)
+    local addresses
+    local number_of_lines=`cat $tmp_directory/$1 | wc -l`
+    let line_counter=0
+        
+    for line in $(cat "$tmp_directory/$1"); do
+        let line_counter=$(($line_counter+1))
+        
+        if [ $line_counter -eq 1 ] ; then
+            addresses=$line
+        else
+            addresses=$addresses","$line
+        fi
+    done
+    
+    echo $addresses
 }
 
 # Creates a list of hosts
